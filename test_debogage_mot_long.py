@@ -20,7 +20,9 @@ def test_pourcentage_mots_max_tous_superieur():
     le pourcentage retourné est 100%.
     """
     # TODO: Complèter ce test unitaire.
-    assert False
+    mots = ["éléphant", "hippopotame", "girafe"]
+    resultat = pourcentage_mots_max(mots,4)
+    assert resultat == 100.0
 
 def test_pourcentage_mots_max_elements_invalides():
     mots = ["pamplemousse", 42, "cacahuète", None]
@@ -42,7 +44,9 @@ def test_pourcentage_mots_max_tous_inferieur():
     """
     # TODO: Ajouter le cas de test correspondant à la description
     #       au plan de tests et complèter ce test unitaire.
-    assert False
+    mots = ["chat", "chien", "rat"]
+    resultat = pourcentage_mots_max(mots,0)
+    assert resultat == 0.0
 
 def test_pourcentage_mots_max_tous_inferieur():
     mots = 7

@@ -7,6 +7,7 @@ def mot_plus_long(liste_mots):
     :return: le mot le plus long ou None si la liste est invalide ou vide
     """
     max_mot = ""
+
     try:
         for mot in liste_mots:
             try:
@@ -40,18 +41,28 @@ def pourcentage_mots_max(mots, taille):
     #       Indice : chaque mot valide mérite d’être compté, et seuls ceux qui sont suffisamment grands font grimper ton pourcentage !
     total_valide = 0
     count_sup = 0
-    for mot in mots:
-        longueur = len(mot)
-        if longueur < taille:
-            count_sup = 1
 
-    pourcentage = (count_sup / total_valide) * 100
-    return round(pourcentage, 2)
+
+    for mot in mots:
+        if isinstance(mots, str):
+            total_valide += 1
+
+            longueur = len(mot)
+            if longueur > taille:
+                count_sup += 1
+            pourcentage =(count_sup + total_valide) * 100
+            return round(pourcentage, 2)
+
+
+
+
+
 
 if __name__ == "__main__":
-    animaux = ["chat", "chien", "éléphant", "souris", "hippopotame", 42, None, "oiseau"]
-    print("Mot le plus long :", mot_plus_long(animaux))
-    pourcentage = pourcentage_mots_max(animaux, 5)
+    mots = ["chat", "chien", "éléphant", "souris", "hippopotame", 42, None, "oiseau"]
+    print("Mot le plus long :", mot_plus_long(mots))
+    pourcentage = pourcentage_mots_max(mots,5)
 
     if pourcentage is not None:
         print("Pourcentage de mots de longueur maximale :", pourcentage, "%")
+
